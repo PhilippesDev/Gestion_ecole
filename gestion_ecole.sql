@@ -63,7 +63,8 @@ CREATE TABLE `t_eleve` (
   `nom_mere` varchar(100) DEFAULT NULL,
   `addresse` varchar(100) DEFAULT NULL,
   `contact_pere` varchar(20) DEFAULT NULL,
-  `contact_mere` varchar(20) DEFAULT NULL
+  `contact_mere` varchar(20) DEFAULT NULL,
+  `photo_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
