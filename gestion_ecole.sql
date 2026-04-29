@@ -101,7 +101,7 @@ CREATE TABLE `t_option` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL UNIQUE,
   `mot_de_passe` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
