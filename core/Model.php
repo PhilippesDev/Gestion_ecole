@@ -1,6 +1,4 @@
 <?php
-require_once "./core/Database.php";
-
 class Model
 {
     public $db;

@@ -1,9 +1,9 @@
 <?php
     class Controller
     {
-        public function view($page, $data = [])
+        public function view($file, $data = [])
         {
-
+            require "../app/views/$file.php";
         }
     }
 ?>
