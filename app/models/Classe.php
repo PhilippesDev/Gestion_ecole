@@ -1,13 +1,14 @@
 <?php
 
-require_once "../core/Model.php";
+require_once './../../core/Model.php';
 
 class Classe extends Model
 {
     public $id;
+
+    public $id_option;
     public $designation;
     public $description;
-    public $id_option;
 
     public function createClasse($designation, $description, $id_option)
     {
@@ -66,5 +67,5 @@ class Classe extends Model
         return $request->fetchAll();
     }
 }
-?>
 
+?>

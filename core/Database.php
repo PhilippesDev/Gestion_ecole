@@ -1,4 +1,4 @@
-<?php
+    <?php
     class Database{
 
         public $connection;
@@ -9,5 +9,4 @@
             return $this->connection;
         }
     }
-
-?>
+   ?>
