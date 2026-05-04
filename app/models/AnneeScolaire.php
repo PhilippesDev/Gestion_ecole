@@ -1,6 +1,6 @@
 <?php
 
-require_once "./core/Model.php";
+require ('./../../core/Model.php');
 
 class AnneeScolaire extends Model
 {
@@ -20,22 +20,22 @@ class AnneeScolaire extends Model
         $this->id = $id;
         $this->designation = $designation;
     
-        $request = $this->db->prepare("UPDATE t_annee_scolaire SET designation =? WHERE id_annee =?");
-        $request->execute([$this->designation, $this->id]);
+        $request = $this->db->prepare("UPDATE t_annee_scolaire SET designation =? WHERE id_annee = ?");
+        return $request->execute([$this->designation, $this->id]);
      }
 
      public function deleteAnneeScolaire($id)
      {
         $this->id = $id;
         $request = $this->db->prepare("DELETE FROM t_annee_scolaire WHERE id_annee =?");
-        $request->execute([$this->id]);
+        return $request->execute([$this->id]);
      }
 
       public function getAllAnneesScolaires()
       {
          $request = $this->db->prepare("SELECT * FROM t_annee_scolaire");
          $request->execute([]);
-         return $request->fetchAll();
+         return $resultat = $request->fetchAll();
       }
 
       public function searchAnneeScolaire($keyword)
@@ -45,3 +45,6 @@ class AnneeScolaire extends Model
          return $request->fetchAll();
       }
 }
+
+
+?>
