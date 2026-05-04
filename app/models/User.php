@@ -1,6 +1,6 @@
 <?php
 
-require_once "./core/Model.php";
+require_once "../core/Model.php";
 
 class User extends Model
 {
@@ -11,6 +11,8 @@ class User extends Model
    
     public function createUser($username, $email, $password)
      {
+         if($username == "" || $password == "") return;
+
         $this->username = $username;
         $this->email = $email;
         $this->password = password_hash($password, PASSWORD_BCRYPT);  
@@ -21,6 +23,8 @@ class User extends Model
 
      public function updateUser($id, $username, $email, $password)
     {
+        if($username == "" || $password == "") return;
+
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
@@ -51,15 +55,17 @@ class User extends Model
          return $request->fetchAll();
       }
 
-      public function login($usernameOremail, $password)
+      public function loginUser($usernameOremail, $password)
       {
          if($usernameOremail  == null || $usernameOremail == "") return false;
 
          $request = $this->db->prepare("SELECT mot_de_passe FROM users WHERE nom =? OR email=?");
          $request->execute([$usernameOremail, $usernameOremail]);
-         $passworhashed =  $request->fetch()["mot_de_passe"];
+         $user = $request->fetch(); 
 
-         if($passworhashed == null)   return false;
+         if($user == null ) return false;
+
+         $passworhashed =  $user["mot_de_passe"];
 
          if(password_verify($password, $passworhashed))
          {

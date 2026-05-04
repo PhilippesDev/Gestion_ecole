@@ -1,6 +1,6 @@
 <?php
 
-require_once "./core/Model.php";
+require_once "../core/Model.php";
 
 class Eleve extends Model
 {
@@ -85,4 +85,11 @@ class Eleve extends Model
          $request->execute(["%$keyword%"]);
          return $request->fetchAll();
       }
+
+      public function getEleveById($id)
+{
+    $request = $this->db->prepare("SELECT * FROM t_eleve WHERE id_eleve = ?");
+    $request->execute([$id]);
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
 }
